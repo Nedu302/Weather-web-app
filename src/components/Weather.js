@@ -7,14 +7,11 @@ const Weather = () => {
   const [weatherData, setWeatherData] = useState(null);
   const [error, setError] = useState('');
 
-  const apiKey = 'e4ba114c98a6914a33ed7206615e19aa'; // Replace with your OpenWeatherMap API key
-
+  const apiKey = 'e4ba114c98a6914a33ed7206615e19aa';
   const fetchWeather = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.get(
-        `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${apiKey}&units=metric`
-      );
+      const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${apiKey}&units=metric`);
       setWeatherData(response.data);
       setError('');
     } catch (err) {
